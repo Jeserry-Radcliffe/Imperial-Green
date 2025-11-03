@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+  </head>
+  <body class="font-[Poppins] h-screen">
+    <!--  bg-gradient-to-t from-[#084408] to-[#073f0f] *for gradient -->
+    <header class="bg-white shadow-md">
+      <nav class="flex justify-between items-center w-[92%] mx-auto">
+        <div>
+          <p
+            class="w-40 h-16 text-xl font-semibold text-green-800 flex items-center text-center"
+          >
+            <a href="index.html">Imperial Green</a>
+          </p>
+        </div>
+
+        <!-- MODAL -->
+        <div
+          class="nav-links duration-500 md:static absolute bg-white md:min-h-fit min-h-[30vh] left-0 -top-full md:w-auto w-full flex items-center px-5 py-5 z-50"
+        >
+          <ul
+            class="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-5 text-xl"
+          >
+            <li>
+              <a class="hover:text-green-800 duration-200" href="index.html"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a class="hover:text-green-800 duration-200" href="forms.html"
+                >Forms</a
+              >
+            </li>
+            <li>
+              <a class="hover:text-green-800 duration-200" href="#">Gallery</a>
+            </li>
+            <li>
+              <a class="hover:text-green-800 duration-200" href="links.html"
+                >External Links</a
+              >
+            </li>
+            <li>
+              <a class="hover:text-green-800 duration-200" href="#">Guides</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="flex items-center gap-6">
+          <button
+            class="bg-green-800 text-white px-5 py-2 rounded-full hover:bg-green-600 duration-300"
+            onclick="window.location.href='contact_us.html'"
+          >
+            Contact Us
+          </button>
+          <!-- <ion-icon name="heart"></ion-icon> -->
+          <ion-icon
+            onclick="onToggleMenu(this)"
+            class="text-3xl cursor-pointer md:hidden"
+            name="grid-outline"
+          ></ion-icon>
+          <!-- <ion-icon name="close"></ion-icon> -->
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <h2
+        class="text-green-900 text-2xl font-light mt-10 text-center lg:text-4xl"
+      >
+        Need Assistance?
+      </h2>
+      <p
+        class="font-sans text-md font-light lg:text-2xl text-center px-2 mx-auto lg:w-[90%] mt-2"
+      >
+        Need policy-related assistance or wish to make changes? We’re here to
+        answer all your questions and clarifications.
+      </p>
+
+      <br />
+
+      <div
+        class="w-[90%] grid mx-auto justify-between lg:flex lg:w-[90%] lg:text-2xl"
+      >
+        <div
+          class="w-full mx-auto lg:w-[50%] p-5 bg-[#E5EAEF] mt-5 rounded-lg gap-0 lg:p-10"
+        >
+          <h3 class="text-green-900 font-semibold">Leave A Message:</h3>
+          <div class="mx-auto mt-5 w-full">
+            <label class="text-sm lg:text-xl mt-2 w-full">Your Email:</label>
+            <br />
+            <input
+              class="text-xs lg:text-lg my-2 w-full p-2 focus:outline-1 focus:outline-green-800 rounded-md"
+              type="text"
+              placeholder="Your email"
+              name="email"
+            />
+            <br />
+            <label class="text-sm lg:text-xl mt-2 w-full">Subject:</label>
+            <br />
+            <input
+              class="text-xs lg:text-lg my-2 w-full p-2 focus:outline-1 focus:outline-green-800 rounded-md"
+              type="text"
+              placeholder="Subject"
+              name="subject"
+            />
+            <br />
+            <label class="text-sm lg:text-xl mt-2 w-full"> Message:</label>
+            <br />
+            <textarea
+              class="text-xs lg:text-lg my-2 p-2 w-full focus:outline-1 focus:outline-green-800 rounded-md"
+              placeholder="Input your message"
+              name="message"
+            ></textarea>
+          </div>
+        </div>
+
+        <div class="w-full lg:w-[50%] lg:px-10 lg:pt-10 gap-0">
+          <div class="mt-5">
+            <h3 class="text-green-900 font-semibold">Email Us:</h3>
+            <ul class="">
+              <li class="text-sm m-1">
+                Application for Insurance - bigqnb@yahoo.com
+              </li>
+              <li class="text-sm m-1">
+                Aftersales Services - bigqasm@yahoo.com
+              </li>
+              <li class="text-sm m-1">Recruitment - bigqrecruit@yahoo.com</li>
+              <li class="text-sm m-1">
+                Admin Benefits Appeal - bigqaba@yahoo.com
+              </li>
+            </ul>
+          </div>
+
+          <div class="mt-5">
+            <h3 class="text-green-900 font-semibold">Messenger:</h3>
+            <ul class="">
+              <li class="text-sm m-1">
+                <a href="https://www.facebook.com/bigq.admin.2025/"
+                  >BIGQ-Admin</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="mt-5">
+            <h3 class="text-green-900 font-semibold">Direct Email to Pru:</h3>
+            <ul class="">
+              <li class="text-sm m-1">contact.us@prulife.com.ph</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      const navLinks = document.querySelector(".nav-links");
+
+      function onToggleMenu(e) {
+        e.name = e.name === "grid-outline" ? "close" : "grid-outline";
+        navLinks.classList.toggle("top-[7%]");
+      }
+    </script>
+  </body>
+</html>

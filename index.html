@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Imperial Green</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+  </head>
+  <body class="font-[Poppins] h-screen">
+    <!--  bg-gradient-to-t from-[#084408] to-[#073f0f] *for gradient -->
+    <header class="bg-white shadow-md">
+      <nav class="flex justify-between items-center w-[92%] mx-auto">
+        <div>
+          <p
+            class="w-40 h-16 text-xl font-semibold text-green-800 flex items-center text-center"
+          >
+            <a href="index.html">Imperial Green</a>
+          </p>
+        </div>
+
+        <!-- MODAL -->
+        <div
+          class="nav-links duration-500 md:static absolute bg-white md:min-h-fit min-h-[35vh] left-0 -top-full md:w-auto w-full flex items-center px-5 py-5 z-50"
+        >
+          <ul
+            class="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-5 text-xl"
+          >
+            <li>
+              <a class="hover:text-green-800 duration-200" href="index.html"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a class="hover:text-green-800 duration-200" href="forms.html"
+                >Forms</a
+              >
+            </li>
+            <li>
+              <a class="hover:text-green-800 duration-200" href="#">Gallery</a>
+            </li>
+            <li>
+              <a class="hover:text-green-800 duration-200" href="links.html"
+                >External Links</a
+              >
+            </li>
+            <li>
+              <a class="hover:text-green-800 duration-200" href="#">Guides</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="flex items-center gap-6">
+          <button
+            class="bg-green-800 text-white px-5 py-2 rounded-full hover:bg-green-600 duration-300"
+            onclick="window.location.href='contact_us.html'"
+          >
+            Contact Us
+          </button>
+          <!-- <ion-icon name="heart"></ion-icon> -->
+          <ion-icon
+            onclick="onToggleMenu(this)"
+            class="text-3xl cursor-pointer md:hidden"
+            name="grid-outline"
+          ></ion-icon>
+          <!-- <ion-icon name="close"></ion-icon> -->
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <div class="main-left">
+        <img
+          class="hidden xl:block shadow-md bg-center xl:w-[70%] xl:mx-auto"
+          src="CorpWebsite_HomePage_Web.png"
+          alt=""
+        />
+        <img
+          class="md:hidden w-full h-auto object-cover"
+          src="./CorpWebsite_HomePage_mobile_prusteadyincome.png"
+          alt=""
+        />
+        <div
+          class="w-[90%] mx-auto grid justify-center text-justify align-middle mt-[5%] pb-[15%] min-h-100vh xl:w-[70%] xl:text-xl"
+        >
+          <h1 class="text-3xl mt-3">About us</h1>
+          <p class="mt-[1%] w-[98%] mx-auto leading-1 mb-16">
+            Welcome to Brilliant Imperial Green Quartz Insurance — your trusted
+            partner in securing a brighter future. We offer a wide range of
+            insurance plans designed to protect your life, health, and assets.
+            With our expert guidance and personalized service, you can enjoy
+            peace of mind knowing you're covered when it matters most. Choose
+            confidence. Choose Brilliant Imperial Green Quartz.
+          </p>
+
+           <!-- <h1  class="text-3xl ">Announcements</h1> -->
+        </div>
+
+   
+      </div>
+
+      <!-- <div class="main-right"></div> -->
+    </main>
+
+    <footer class="bg-black py-56">
+      
+    </footer>
+
+    <script>
+      const navLinks = document.querySelector(".nav-links");
+
+      function onToggleMenu(e) {
+        e.name = e.name === "grid-outline" ? "close" : "grid-outline";
+        navLinks.classList.toggle("top-[6%]");
+      }
+    </script>
+
+    <!-- <nav
+      class="w-auto h-40 bg-green-700 shadow-md flex justify-between items-center p-10"
+    >
+      <p class="font-['Poppins',sans-serif] text-7xl text-white">Brilliant Imperial Green Quartz</p>
+
+       <div class="space-y-1.5 cursor-pointer ">
+        <span class="block w-30 h-2.5 bg-white rounded"></span>
+        <span class="block w-6 h-0.5 bg-white rounded"></span>
+        <span class="block w-6 h-0.5 bg-white rounded"></span>
+      </div> 
+    </nav>
+
+    <div class="flex justify-around gap-2 align-middle mt-10 mx-auto w-[900px]">
+      <div class="bg-blue-400 w-[400px] h-56 rounded-xl shadow-sm"></div>
+      <div class="bg-green-400 w-[400px] h-56 rounded-xl shadow-sm"></div>
+    </div>
+    <div class="mt-10 mx-auto w-[850px]">
+      <div class="bg-violet-400 w-auto h-80 rounded-xl shadow-sm"></div>
+    </div>
+
+    <div
+      class="w-[850px] h-80 mt-10 m-auto items-baseline rounded-lg flex flex-col"
+    >
+      <h1 class="text-5xl font-['Poppins',sans-serif] text-red-900 p-5">
+        Heading 1
+      </h1>
+      <p class="text-3xl font-['Poppins',sans-serif] text-justify px-6 mx-auto">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores
+        atque quas, aut sunt illo dignissimos tempora facilis voluptatibus
+        deserunt assumenda maxime accusamus accusantium nulla iste? Quasi
+        assumenda in tenetur nisi.
+      </p>
+      <br />
+      <h1 class="text-5xl font-['Poppins',sans-serif] text-amber-900 p-5">
+        Heading 2
+      </h1>
+      <p class="text-3xl font-['Poppins',sans-serif] text-justify px-6 mx-auto">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores
+        atque quas, aut sunt illo dignissimos tempora facilis voluptatibus
+        deserunt assumenda maxime accusamus accusantium nulla iste? Quasi
+        assumenda in tenetur nisi.
+      </p>
+    </div> -->
+  </body>
+</html>

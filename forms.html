@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tailwind Example</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+  </head>
+  <body class="font-[Poppins] h-screen">
+    <!--  bg-gradient-to-t from-[#084408] to-[#073f0f] *for gradient -->
+    <header class="bg-white shadow-md">
+      <nav class="flex justify-between items-center w-[92%] mx-auto z-50">
+        <div>
+          <!-- <img
+            class="w-16"
+            src="https://cdn-icons-png.flaticon.com/512/5968/5968204.png"
+            alt="..."
+          /> -->
+
+          <p
+            class="w-40 h-16 text-xl font-semibold text-green-800 flex items-center text-center"
+          >
+            <a href="index.html">Imperial Green</a>
+          </p>
+        </div>
+
+        <!-- MODAL -->
+        <div
+          class="nav-links duration-500 md:static absolute bg-white md:min-h-fit min-h-[30vh] left-0 top-[-100%] md:w-auto w-full flex items-center px-5 py-5 z-50"
+        >
+          <ul
+            class="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-5 text-xl"
+          >
+            <li>
+              <a class="hover:text-green-800 duration-200" href="index.html"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a class="hover:text-green-800 duration-200" href="forms.html"
+                >Forms</a
+              >
+            </li>
+            <li>
+              <a class="hover:text-green-800 duration-200" href="#">Gallery</a>
+            </li>
+            <li>
+              <a class="hover:text-green-800 duration-200" href="links.html"
+                >External Links</a
+              >
+            </li>
+            <li>
+              <a class="hover:text-green-800 duration-200" href="#">Guides</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="flex items-center gap-6">
+          <button
+            class="bg-green-800 text-white px-5 py-2 rounded-full hover:bg-green-600 duration-300"
+            onclick="window.location.href='contact_us.html'"
+          >
+            Contact Us
+          </button>
+          <!-- <ion-icon name="heart"></ion-icon> -->
+          <ion-icon
+            onclick="onToggleMenu(this)"
+            class="text-3xl cursor-pointer md:hidden"
+            name="grid-outline"
+          ></ion-icon>
+          <!-- <ion-icon name="close"></ion-icon> -->
+        </div>
+      </nav>
+    </header>
+
+    <main
+      class="bg-gradient-to-t from-[#188a18] to-[#146020] w-full h-auto object-cover text-white pb-[5%]"
+    >
+      <div
+        class="grid justify-center align-center items-center pt-[10%] w-[85%] mx-auto"
+      >
+        <h1 class="text-4xl font-bold text-center lg:text-5xl">
+          Downloadable Forms
+        </h1>
+        <p class="font-sans text-xl font-light mt-5 lg:text-2xl">
+          Find all the essential forms for policy-related transactions in just
+          one click.
+        </p>
+      </div>
+
+      <div
+        class="flex justify-baseline items-center mt-[5%] bg-[#E5EAEF] mx-[5%] px-5 rounded-xl lg:mx-[20%]"
+      >
+        <ion-icon name="search" class="text-4xl text-green-600"></ion-icon>
+        <input
+          class="p-5 bg-[#E5EAEF] text-[#0b0b0bb3] w-full text-base focus:outline-none focus:border-none md:w-[90%] lg:text-xl"
+          type="text"
+          id="searchInput"
+          placeholder="What forms do you need today?"
+        />
+      </div>
+    </main>
+
+    <br />
+
+    <div id="policy-list" class="space-y-3 pb-10"></div>
+
+    <script>
+      // mobile modal
+      const navLinks = document.querySelector(".nav-links");
+
+      function onToggleMenu(e) {
+        e.name = e.name === "grid-outline" ? "close" : "grid-outline";
+        navLinks.classList.toggle("top-[7%]");
+      }
+
+      // forms list
+      const policies = [
+        {
+          name: "App Form (II)",
+          category: "New Business",
+          size: "477kb",
+          link: "./pdf/00_Application_Individual_Insurance.pdf",
+        },
+        {
+          name: "Suitability Assesment Form",
+          category: "New Business",
+          size: "25kb",
+          link: "./pdf/Suitability_Assessment_Form.pdf",
+        },
+        {
+          name: "Additional Beneficiaries Form",
+          category: "New Business",
+          size: "18kb",
+          link: "./pdf/Additional_Beneficiaries_Form.pdf",
+        },
+        {
+          name: "Attestation Form",
+          category: "New Business",
+          size: "18kb",
+          link: "./pdf/Attestation_Non_Face_to_Face.pdf",
+        },
+        {
+          name: "Credit Card Enrolment",
+          category: "New Business",
+          size: "18kb",
+          link: "./pdf/Credit_Card_Enrolment.pdf",
+        },
+        {
+          name: "App Form (PA-PW)",
+          category: "New Business",
+          size: "18kb",
+          link: "./pdf/PA_&_PruWell_Form.pdf",
+        },
+        {
+          name: "App Form (PA - Filled Up)",
+          category: "New Business",
+          size: "18kb",
+          link: "./pdf/01_PAForm.pdf",
+        },
+        {
+          name: "Suitability (PA)",
+          category: "New Business",
+          size: "18kb",
+          link: "./pdf/02_PA-Suitability.pdf",
+        },
+        {
+          name: "App Form (SI)",
+          category: "New Business",
+          size: "18kb",
+          link: "./pdf/Application_Simplified_Issue.pdf",
+        },
+        {
+          name: "LOA Form",
+          category: "New Business",
+          size: "18kb",
+          link: "./pdf/LOA FORM.pdf",
+        },
+        {
+          name: "Partial Withdrawal",
+          category: "After-Sales",
+          size: "18kb",
+          link: "./pdf/Partial_Withdrawal.pdf",
+        },
+        {
+          name: "Full Withdrawal / Policy Surrender",
+          category: "After-Sales",
+          size: "",
+          link: "./pdf/Policy_Surrender_Form.pdf",
+        },
+        {
+          name: "Customer Information Update",
+          category: "After-Sales",
+          size: "18kb",
+          link: "./pdf/customer-information-update-form.pdf",
+        },
+        {
+          name: "Amendment Request",
+          category: "After-Sales",
+          size: "18kb",
+          link: "./pdf/2022_Policy_Amendment_Request_Form_for_Individual_PO_FILLABLE_v2.pdf",
+        },
+        {
+          name: "Assignment of Policy Form",
+          category: "After-Sales",
+          size: "18kb",
+          link: "./pdf/2022_Assignment of Policy Form for individual PO-FILLABLE-v2.pdf",
+        },
+        {
+          name: "Transfer of Accountability Form",
+          category: "After-Sales",
+          size: "18kb",
+          link: "./pdf/TRANSFER OF ACCOUNTABILITY FORM.pdf",
+        },
+        {
+          name: "Change of Servicing Agent (COSAF)",
+          category: "After-Sales",
+          size: "18kb",
+          link: "./pdf/21_Change_of_Servicing_Agent_form.pdf",
+        },
+        {
+          name: "Pertaining to Loss of Policy Contract",
+          category: "After-Sales",
+          size: "18kb",
+          link: "./pdf/25 Mar 2022 Agreement Pertaining to Loss or Destruction of Policy Contract Form Fillable.pdf",
+        },
+        {
+          name: "Request for Printed Policy Kit",
+          category: "After-Sales",
+          size: "18kb",
+          link: "./pdf/08 Jan 2021 Request for Printed Policy Kit Form Fillable.pdf",
+        },
+        {
+          name: "Specimen Signature Form",
+          category: "After-Sales",
+          size: "18kb",
+          link: "./pdf/25_Mar_2022_Specimen_Signature_Form_Fillable.pdf",
+        },
+        {
+          name: "Special Power of Attorney",
+          category: "Withdrawals",
+          size: "18kb",
+          link: "./pdf/Standard-special-power-of-attorney 2.docx",
+        },
+        {
+          name: "Top-up Form",
+          category: "After-Sales",
+          size: "18kb",
+          link: "./pdf/2021_PRULink_Application_for_Top-up_Form-1.pdf",
+        },
+      ];
+
+      const list = document.getElementById("policy-list");
+
+      // Loop to render each policy dynamically
+      policies.forEach((p) => {
+        list.innerHTML += `
+      <div class="flex w-[90%] mx-auto mt-3 py-5 px-3 max-h-[120px] bg-[#E5EAEF] my-auto rounded-md xl:w-[70%]">
+        <ion-icon
+          name="document-text-outline"
+          class="text-5xl w-[20%] self-center lg:text-5xl"
+        ></ion-icon>
+        <div class="grid gap-1 w-[70%]  p-1">
+          <p class="text-center text-xl truncate">${p.name}</p>
+          <div class="flex justify-center gap-6 text-[12px]">
+            <p class="text-green-700  truncate">${p.category}</p>
+            <p class=" truncate">File Size: ${p.size}</p>
+          </div>
+        </div>
+        <a href="${p.link}" class="w-[20%] text-center" download>
+          <ion-icon
+            name="chevron-forward-circle"
+            class="text-3xl text-green-700 h-[98%] my-auto lg:text-4xl"
+          ></ion-icon>
+        </a>
+      </div>
+    `;
+      });
+
+      // SEARCH FUNCTION
+      const searchInput = document.getElementById("searchInput");
+      const policyList = document.getElementById("policy-list");
+
+      // Function to render filtered policies
+      function renderPolicies(filteredPolicies) {
+        policyList.innerHTML = ""; // Clear list first
+
+        if (filteredPolicies.length === 0) {
+          policyList.innerHTML = `
+            <p class="text-gray-500 text-center mt-5">No matching forms found.</p>
+          `;
+          return;
+        }
+
+        filteredPolicies.forEach((p) => {
+          policyList.innerHTML += `
+            <div class="flex w-[90%] mx-auto mt-3 py-5 px-3 max-h-[120px] my-auto bg-[#E5EAEF] rounded-md xl:w-[70%]">
+              <ion-icon
+                name="document-text-outline"
+                class="text-4xl w-[20%] self-center lg:text-5xl"
+              ></ion-icon>
+              <div class="grid gap-1 w-[70%] p-1">
+                <p class="text-center text-xl truncate">${p.name}</p>
+                <div class="flex justify-center gap-6 text-[14px] w-[95%] mx-auto">
+                  <p class="text-green-700 truncate">${p.category}</p>
+                  <p class="truncate">File Size: ${p.size}</p>
+                </div>
+              </div>
+              <a href="${p.link}" class="w-[20%] text-center" download>
+                <ion-icon
+                  name="chevron-forward-circle"
+                  class="text-3xl text-green-700 h-[98%] my-auto lg:text-4xl"
+                ></ion-icon>
+              </a>
+            </div>
+          `;
+        });
+      }
+
+      // Default render (show all)
+      renderPolicies(policies);
+
+      // Handle search input
+      searchInput.addEventListener("keyup", () => {
+        const query = searchInput.value.toLowerCase().trim();
+
+        const filtered = policies.filter(
+          (p) =>
+            p.name.toLowerCase().includes(query) ||
+            p.category.toLowerCase().includes(query)
+        );
+
+        renderPolicies(filtered);
+      });
+
+      // AUTO DETECT AND UPDATE PDF FILE SIZES (with loading placeholder)
+
+      // Render all policies initially with "Loading..." for file size
+      function renderPolicies(filteredPolicies) {
+        const list = document.getElementById("policy-list");
+        list.innerHTML = "";
+
+        if (filteredPolicies.length === 0) {
+          list.innerHTML = `<p class="text-gray-500 text-center mt-5">No matching forms found.</p>`;
+          return;
+        }
+
+        filteredPolicies.forEach((p) => {
+          list.innerHTML += `
+      <div class="flex w-[90%] mx-auto mt-3 py-5 px-3 max-h-[120px] bg-[#E5EAEF] rounded-md lg:w-[70%]">
+        <ion-icon name="document-text-outline" class="text-4xl w-[20%] self-center lg:text-5xl"></ion-icon>
+        <div class="grid gap-1 w-[70%] p-1">
+          <p class="text-center text-xl truncate">${p.name}</p>
+          <div class="flex justify-center gap-6 text-[14px] w-[95%] mx-auto">
+            <p class="text-green-700 truncate">${p.category}</p>
+            <p class="truncate file-size" data-link="${p.link}">File Size: Loading...</p>
+          </div>
+        </div>
+        <a href="${p.link}" class="w-[20%] text-center" download>
+          <ion-icon name="chevron-forward-circle" class="text-3xl text-green-700 h-[98%] my-auto lg:text-4xl"></ion-icon>
+        </a>
+      </div>
+    `;
+        });
+      }
+
+      // Function to fetch and update file sizes
+      async function updateFileSizes() {
+        const sizeEls = document.querySelectorAll(".file-size");
+
+        for (const el of sizeEls) {
+          const link = el.getAttribute("data-link");
+          try {
+            const res = await fetch(encodeURI(link), { method: "HEAD" });
+            const bytes = res.headers.get("content-length");
+
+            if (bytes) {
+              const kb = bytes / 1024;
+              const readable =
+                kb < 1024
+                  ? `${kb.toFixed(1)} KB`
+                  : `${(kb / 1024).toFixed(1)} MB`;
+              el.textContent = `File Size: ${readable}`;
+            } else {
+              el.textContent = "File Size: Unknown";
+            }
+          } catch {
+            el.textContent = "File Size: Not Found";
+          }
+        }
+      }
+
+      // Run when the page loads
+      document.addEventListener("DOMContentLoaded", () => {
+        renderPolicies(policies);
+        updateFileSizes();
+      });
+
+      // Handle search input
+      searchInput.addEventListener("keyup", () => {
+        const query = searchInput.value.toLowerCase().trim();
+
+        const filtered = policies.filter(
+          (p) =>
+            p.name.toLowerCase().includes(query) ||
+            p.category.toLowerCase().includes(query)
+        );
+
+        renderPolicies(filtered);
+        updateFileSizes(); // 👈 re-fetch sizes after search results appear
+      });
+    </script>
+  </body>
+</html>
